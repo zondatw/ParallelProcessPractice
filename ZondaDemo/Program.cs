@@ -9,7 +9,8 @@ namespace ZondaDemo
         {
             TaskRunnerBase run =
                 // new BasicLoopRunner();
-                new BasicLoopStepLevelRunner();
+                //new BasicLoopStepLevelRunner();
+                new PipelineRunner();
             run.ExecuteTasks(100);
         }
     }
