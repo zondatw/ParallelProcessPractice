@@ -7,8 +7,10 @@ namespace ZondaDemo
     {
         static void Main(string[] args)
         {
-            TaskRunnerBase run = new BasicLoopRunner();
-            run.ExecuteTasks(10);
+            TaskRunnerBase run =
+                // new BasicLoopRunner();
+                new BasicLoopStepLevelRunner();
+            run.ExecuteTasks(100);
         }
     }
 }

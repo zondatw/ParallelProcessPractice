@@ -1,6 +1,6 @@
 # Zonda Demo
 
-## BasicLoop
+## BasicLoopRunner
 
 Count 10:  
 
@@ -51,6 +51,66 @@ Execution Summary: ZondaDemo.BasicLoopRunner, PASS
   - Time To First Task Completed: 1503.9596 msec
   - Time To Last Task Completed:  145503.0479 msec
   - Total Waiting Time: 7347370.586 / msec, Average Waiting Time: 73473.70586
+
+* Execute Count:
+  - Total:   100
+  - Success: 100
+  - Failure: 0
+  - Complete Step #1: 100
+  - Complete Step #2: 100
+  - Complete Step #3: 100
+```
+
+## BasicLoopStepLevelRunner
+
+Count 10:  
+
+```bash
+Execution Summary: ZondaDemo.BasicLoopStepLevelRunner, PASS
+
+* Max WIP:
+  - ALL:      10
+  - Step #1:  1
+  - Step #2:  1
+  - Step #3:  1
+
+* Used Resources:
+  - Memory Usage (Peak):  22912
+  - Context Switch Count: 3
+
+* Waiting (Lead) Time:
+  - Time To First Task Completed: 10663.5626 msec
+  - Time To Last Task Completed:  14599.9146 msec
+  - Total Waiting Time: 126334.0103 / msec, Average Waiting Time: 12633.401029999999
+
+* Execute Count:
+  - Total:   10
+  - Success: 10
+  - Failure: 0
+  - Complete Step #1: 10
+  - Complete Step #2: 10
+  - Complete Step #3: 10
+```
+
+Count 100:
+
+```bash
+Execution Summary: ZondaDemo.BasicLoopStepLevelRunner, PASS
+
+* Max WIP:
+  - ALL:      100
+  - Step #1:  1
+  - Step #2:  1
+  - Step #3:  1
+
+* Used Resources:
+  - Memory Usage (Peak):  107008
+  - Context Switch Count: 3
+
+* Waiting (Lead) Time:
+  - Time To First Task Completed: 102051.1727 msec
+  - Time To Last Task Completed:  145347.1196 msec
+  - Total Waiting Time: 12370226.2722 / msec, Average Waiting Time: 123702.262722
 
 * Execute Count:
   - Total:   100
