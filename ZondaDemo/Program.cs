@@ -12,8 +12,9 @@ namespace ZondaDemo
                 // new BasicLoopStepLevelRunner();
                 // new PipelineRunner();
                 // new PipelineAsyncRunner();
-                new PipelineQueueRunner();
-            run.ExecuteTasks(10);
+                // new PipelineQueueRunner();
+                new PipelineTreadQueueRunner();
+            run.ExecuteTasks(100);
         }
     }
 }

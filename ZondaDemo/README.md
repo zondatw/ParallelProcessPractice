@@ -240,3 +240,63 @@ Execution Summary: ZondaDemo.PipelineQueueRunner, PASS
   - Complete Step #2: 100
   - Complete Step #3: 100
 ```
+
+## PipelineTreadQueueRunner
+
+Count 10:  
+
+```bash
+Execution Summary: ZondaDemo.PipelineTreadQueueRunner, PASS
+
+* Max WIP:
+  - ALL:      10
+  - Step #1:  5
+  - Step #2:  3
+  - Step #3:  3
+
+* Used Resources:
+  - Memory Usage (Peak):  26240
+  - Context Switch Count: 11
+
+* Waiting (Lead) Time:
+  - Time To First Task Completed: 1727.6087 msec
+  - Time To Last Task Completed:  3048.8735 msec
+  - Total Waiting Time: 23473.5365 / msec, Average Waiting Time: 2347.35365
+
+* Execute Count:
+  - Total:   10
+  - Success: 10
+  - Failure: 0
+  - Complete Step #1: 10
+  - Complete Step #2: 10
+  - Complete Step #3: 10
+```
+
+Count 100:  
+
+```bash
+Execution Summary: ZondaDemo.PipelineTreadQueueRunner, PASS
+
+* Max WIP:
+  - ALL:      12
+  - Step #1:  5
+  - Step #2:  3
+  - Step #3:  3
+
+* Used Resources:
+  - Memory Usage (Peak):  28288
+  - Context Switch Count: 11
+
+* Waiting (Lead) Time:
+  - Time To First Task Completed: 1931.9215 msec
+  - Time To Last Task Completed:  19033.5336 msec
+  - Total Waiting Time: 961987.7754 / msec, Average Waiting Time: 9619.877754000001
+
+* Execute Count:
+  - Total:   100
+  - Success: 100
+  - Failure: 0
+  - Complete Step #1: 100
+  - Complete Step #2: 100
+  - Complete Step #3: 100
+```
