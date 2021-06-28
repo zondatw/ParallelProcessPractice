@@ -160,20 +160,13 @@ namespace ZondaDemo
             };
 
             // Create multithreading, how many thread number by TASK_STEPS_CONCURRENT_LIMIT
-            for (int threadCount = 0; threadCount < TASK_STEPS_CONCURRENT_LIMIT[1]; threadCount++)
+            for (int step = 1; step <= 3; step++)
             {
-                threads.Add(thread = new Thread(this.Step1));
-                thread.Start();
-            }
-            for (int threadCount = 0; threadCount < TASK_STEPS_CONCURRENT_LIMIT[2]; threadCount++)
-            {
-                threads.Add(thread = new Thread(this.Step2));
-                thread.Start();
-            }
-            for (int threadCount = 0; threadCount < TASK_STEPS_CONCURRENT_LIMIT[3]; threadCount++)
-            {
-                threads.Add(thread = new Thread(this.Step3));
-                thread.Start();
+                for (int threadCount = 0; threadCount < TASK_STEPS_CONCURRENT_LIMIT[step]; threadCount++)
+                {
+                    threads.Add(thread = new Thread(this.DoStep));
+                    thread.Start(step);
+                }
             }
 
             // Add task to queue 0 that for step 1
@@ -194,32 +187,14 @@ namespace ZondaDemo
             }
         }
 
-        private void Step1()
+        private void DoStep(object stepValue)
         {
-            int step = 1;
+            int step = (int)stepValue;
+            bool isNotFinalStep = this.queues.Length > step;
             foreach (var task in this.queues[step - 1].GetConsumingEnumerable())
             {
                 task.DoStepN(step);
-                this.queues[step].Add(task);
-            }
-        }
-
-        private void Step2()
-        {
-            int step = 2;
-            foreach (var task in this.queues[step - 1].GetConsumingEnumerable())
-            {
-                task.DoStepN(step);
-                this.queues[step].Add(task);
-            }
-        }
-
-        private void Step3()
-        {
-            int step = 3;
-            foreach (var task in this.queues[step - 1].GetConsumingEnumerable())
-            {
-                task.DoStepN(step);
+                if (isNotFinalStep) this.queues[step].Add(task);
             }
         }
     }
